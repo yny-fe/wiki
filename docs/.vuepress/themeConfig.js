@@ -2,12 +2,13 @@
 * @Author: Just be free
 * @Date:   2020-07-10 14:04:39
 * @Last Modified by:   Just be free
-* @Last Modified time: 2021-10-18 14:18:24
+* @Last Modified time: 2021-10-18 14:54:11
 * @E-mail: justbefree@126.com
 */
 module.exports = {
   nav: [
     { text: "Home", link: "/" },
+    { text: "行程配置解读", link: "/trip/" },
     // {
     //   text: "components",
     //   items: [
@@ -25,6 +26,15 @@ module.exports = {
     // { text: "cli", link: "/cli/" }
   ],
   sidebar: {
+    "/trip/": [
+      {
+        title: "行程",
+        collapsable: true,
+        children: [
+          ["trip.md", "行程配置"]
+        ]
+      }
+    ]
     // "/earth/": [
     //   ["install.md", "Installation"],
     //   {
