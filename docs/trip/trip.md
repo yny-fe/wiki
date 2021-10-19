@@ -10,6 +10,12 @@
   - 作用：我的行程列表页筛选条件可跨度范围
   - 默认值：90
 
+## ThirdCtnReserve <Badge text="酒店"/>
+
+  - 背景：
+  - 作用：第三方供应商(酒店)继续预定开
+  - 默认值：true
+
 
 ## HotelBookContactInfo
 
@@ -31,6 +37,13 @@
   - 默认值：Z
   - 可选值：Z：日期随意更换 P：日期不可更换
 
+## TrainChangeCityType
+  
+  - 背景：
+  - 作用：国内火车改签地点类型
+  - 默认值：Z
+  - 说明：Z：地点随意更换 P：地点不可更换
+
 ## IsHideCarAmount
 
   - 背景：有些企业要求在行程首页其它页签需要隐藏金额字段
@@ -39,15 +52,16 @@
 
 ## TabShowSequence
 
-  - 背景：
-  - 作用：
-  - 默认值：
+  - 背景：不同企业要求行程首页各个业务线的先后顺序不一
+  - 作用：行程首页页签展示顺序
+  - 默认值：Flight,Train,Hotel,Car,Other（分别对应机票,火车,酒店,用车,其他）
 
 ## TabItems
   
-  - 背景：
-  - 作用：
-  - 默认值：
+  - 背景： 不同企业对不同的业务线需求不一样，例如A企业只需要国内酒店业务线
+  - 作用：行程首页展示标签可显示的业务线
+  - 默认值： 国内机酒火用车其他
+  - 可选值：国际酒店、国内酒店、国际机票、国内机票、火车票、国内用车、其他选项
 
 ## ReserveButtons
 
@@ -111,7 +125,9 @@
   - 作用：国际机票往返
   - 默认值：false
 
-## IsLimitFlightChangeTime <Badge text="drepacted" type="error" />
+
+## IsLimitFlightChangeTime :thumbsdown:
+deprecated
 
 ## HotelBookContactInfo
 
@@ -165,8 +181,9 @@
 ## TravelMealStandard
 
   - 背景：
-  - 作用：
-  - 默认值：
+  - 作用：差旅餐费标准
+  - 默认值：0
+  - 说明：如果大于0则按照实际标准自动计算
 
 ## OtherTypeHideList
 
@@ -611,7 +628,7 @@
 
 ## ecsTabItems
   
-  - 背景：
+  - 背景：有些企业需要控制到不同的人进来可以看到不同的页签，但是目前已经有个企业级的配置项[TabItems](./trip.html#TabItems)了
   - 作用：
   - 默认值：
 
