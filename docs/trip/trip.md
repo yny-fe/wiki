@@ -465,11 +465,8 @@ deprecated
   - 作用：创建完订单是否云快报直接出票无需共享确认
   - 默认值：false
 
-## ReturnRebookButtons
-
-  - 背景：
-  - 作用：
-  - 默认值：
+## ReturnRebookButtons:thumbsdown:
+deprecated
 
 ## ButtonsOnCreateSchedule
 
