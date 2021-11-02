@@ -2,7 +2,7 @@
 * @Author: Just be free
 * @Date:   2020-07-10 14:04:39
 * @Last Modified by:   Just be free
-* @Last Modified time: 2021-10-19 16:49:40
+* @Last Modified time: 2021-11-02 09:56:25
 * @E-mail: justbefree@126.com
 */
 module.exports = {
@@ -30,7 +30,7 @@ module.exports = {
         collapsable: true,
         children: [
           ["ai.md", "AI语音交互操作商旅"],
-          ["postmessage.md", "云商旅和ECS交互设计"],
+          ["interaction.md", "云商旅和ECS、共享交互设计"],
           ["sensors.md", "神策数据埋点设计方案"]
         ]
       }
