@@ -2,7 +2,7 @@
 * @Author: Just be free
 * @Date:   2020-07-10 14:04:39
 * @Last Modified by:   Just be free
-* @Last Modified time: 2021-11-02 09:56:25
+* @Last Modified time: 2021-11-04 10:19:05
 * @E-mail: justbefree@126.com
 */
 module.exports = {
@@ -31,7 +31,10 @@ module.exports = {
         children: [
           ["ai.md", "AI语音交互操作商旅"],
           ["interaction.md", "云商旅和ECS、共享交互设计"],
-          ["sensors.md", "神策数据埋点设计方案"]
+          ["sensors.md", "神策数据埋点设计方案"],
+          ["pay.md", "酒店混付设计方案"],
+          ["postmessage.md", "postMessage实现类"],
+          ["third-supplier.md", "云商旅对接三方供应商【H5对接】"]
         ]
       }
     ]
