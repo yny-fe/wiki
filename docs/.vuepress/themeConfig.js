@@ -37,6 +37,15 @@ module.exports = {
           ["third-supplier.md", "云商旅对接三方供应商【H5对接】"],
           ["performance.md", "前端渲染速度优化方案"]
         ]
+      },
+      {
+        title: "云商旅前端主题切换设计方案",
+        collapsable: true,
+        children: [
+          ["toggle-theme.md","前端主题切换"],
+         
+        ]
+   
       }
     ]
   },
