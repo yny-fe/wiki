@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>总体思路说明 | 商旅wiki</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="docs">
+    
+    <link rel="preload" href="/assets/css/0.styles.2fd5d178.css" as="style"><link rel="preload" href="/assets/js/app.717f167b.js" as="script"><link rel="preload" href="/assets/js/2.70df9f4e.js" as="script"><link rel="preload" href="/assets/js/20.0e899b0c.js" as="script"><link rel="prefetch" href="/assets/js/10.2641f299.js"><link rel="prefetch" href="/assets/js/11.e48fea39.js"><link rel="prefetch" href="/assets/js/12.df772b9d.js"><link rel="prefetch" href="/assets/js/13.596bfd4b.js"><link rel="prefetch" href="/assets/js/14.707f1312.js"><link rel="prefetch" href="/assets/js/15.bf8284d9.js"><link rel="prefetch" href="/assets/js/16.65bde66d.js"><link rel="prefetch" href="/assets/js/17.fbd8f71d.js"><link rel="prefetch" href="/assets/js/18.3abb0d35.js"><link rel="prefetch" href="/assets/js/19.127f3346.js"><link rel="prefetch" href="/assets/js/21.8dcba892.js"><link rel="prefetch" href="/assets/js/22.fc09d5bc.js"><link rel="prefetch" href="/assets/js/3.2b6eb0b5.js"><link rel="prefetch" href="/assets/js/4.09a4b70a.js"><link rel="prefetch" href="/assets/js/5.86e201b6.js"><link rel="prefetch" href="/assets/js/6.ae4bf495.js"><link rel="prefetch" href="/assets/js/7.7ffa2007.js"><link rel="prefetch" href="/assets/js/8.61bbf698.js"><link rel="prefetch" href="/assets/js/9.47085f24.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2fd5d178.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">商旅wiki</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/trip/" class="nav-link">
+  行程配置解读
+</a></div><div class="nav-item"><a href="/fe-design/" class="nav-link router-link-active">
+  前端设计方案
+</a></div> <a href="https://github.com/yny-fe/wiki" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Contribute!
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/trip/" class="nav-link">
+  行程配置解读
+</a></div><div class="nav-item"><a href="/fe-design/" class="nav-link router-link-active">
+  前端设计方案
+</a></div> <a href="https://github.com/yny-fe/wiki" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Contribute!
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>云商旅前端设计方案</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>云商旅前端主题切换设计方案</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/fe-design/toggle-theme.html" aria-current="page" class="active sidebar-link">前端主题切换</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="总体思路说明"><a href="#总体思路说明" class="header-anchor">#</a> 总体思路说明</h3> <p>1.首先设置一个_themes.scss文件,这是定义你的俩套主题色或者n套主题色的各个属性值颜色的声明，这里以dark和light俩套主题色为例。<br>
+2.通过给js全局加上自定义属性，并附上你在 _themes.scss文件声明主题色名称，可以实现动态切换。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code>window<span class="token punctuation">.</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span> data<span class="token operator">-</span>theme<span class="token punctuation">,</span> <span class="token string">'light'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><h4 id="注意点"><a href="#注意点" class="header-anchor">#</a> 注意点</h4> <p>当HTML的data-theme为light时，样式引用light
+data-theme为其他值时，就采用组件库的默认样式
+这里我只定义了两套主题方案，想要再多只需在<code>_themes.scss</code>里加就行了
+注意一点是，每套配色方案里的key可以自定义但必须一致，不然就会混乱</p> <h4 id="第一步-创建-themes-scss文件-格式如下"><a href="#第一步-创建-themes-scss文件-格式如下" class="header-anchor">#</a> 第一步：创建_themes.scss文件 格式如下</h4> <div class="language-scss line-numbers-mode"><pre class="language-scss"><code><span class="token property"><span class="token variable">$themes</span></span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+
+    <span class="token property">light</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+        <span class="token comment">//字体</span>
+        <span class="token property">font_color1</span><span class="token punctuation">:</span> #414141<span class="token punctuation">,</span>
+        <span class="token property">font_color2</span><span class="token punctuation">:</span> white<span class="token punctuation">,</span>
+        
+        <span class="token comment">//背景</span>
+        <span class="token property">background_color1</span><span class="token punctuation">:</span> #fff<span class="token punctuation">,</span>
+        <span class="token property">background_color2</span><span class="token punctuation">:</span> #f0f2f5<span class="token punctuation">,</span>
+        <span class="token property">background_color3</span><span class="token punctuation">:</span> red<span class="token punctuation">,</span>
+        <span class="token property">background_color4</span><span class="token punctuation">:</span> #2674e7<span class="token punctuation">,</span>
+        
+        <span class="token comment">//边框</span>
+        <span class="token property">border_color1</span><span class="token punctuation">:</span> #3d414a<span class="token punctuation">,</span>
+    
+    <span class="token punctuation">)</span><span class="token punctuation">,</span>
+    
+    <span class="token property">dark</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+        <span class="token comment">//字体</span>
+        <span class="token property">font_color1</span><span class="token punctuation">:</span> #a7a7a7<span class="token punctuation">,</span>
+        <span class="token property">font_color2</span><span class="token punctuation">:</span> white<span class="token punctuation">,</span>
+        
+        <span class="token comment">//背景</span>
+        <span class="token property">background_color1</span><span class="token punctuation">:</span> #1b2531<span class="token punctuation">,</span>
+        <span class="token property">background_color2</span><span class="token punctuation">:</span> #283142<span class="token punctuation">,</span>
+        <span class="token property">background_color3</span><span class="token punctuation">:</span> #1e6ceb<span class="token punctuation">,</span>
+        <span class="token property">background_color4</span><span class="token punctuation">:</span> #323e4e<span class="token punctuation">,</span>
+    
+        <span class="token comment">//边框</span>
+        <span class="token property">border_color1</span><span class="token punctuation">:</span> #3d414a<span class="token punctuation">,</span>
+    
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h4 id="第二步-创建-handle-scss文件-逻辑如下"><a href="#第二步-创建-handle-scss文件-逻辑如下" class="header-anchor">#</a> 第二步：创建_handle.scss文件 逻辑如下</h4> <div class="language-scss line-numbers-mode"><pre class="language-scss"><code><span class="token keyword">@import</span> <span class="token string">&quot;./_themes.scss&quot;</span><span class="token punctuation">;</span>
+<span class="token comment">// @import url(./_themes.scss);</span>
+<span class="token comment">//遍历主题map</span>
+<span class="token keyword">@mixin</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+    <span class="token keyword">@each</span> <span class="token selector"><span class="token variable">$theme-name</span>, <span class="token variable">$theme-map</span> in <span class="token variable">$themes</span> </span><span class="token punctuation">{</span>
+        <span class="token comment">//!global 把局部变量强升为全局变量</span>
+        <span class="token property"><span class="token variable">$theme-map</span></span><span class="token punctuation">:</span> <span class="token variable">$theme-map</span> !global<span class="token punctuation">;</span>
+        <span class="token comment">//判断html的data-theme的属性值  #{}是sass的插值表达式</span>
+        <span class="token comment">//&amp; sass嵌套里的父容器标识   @content是混合器插槽，像vue的slot</span>
+        <span class="token selector">[data-theme=&quot;<span class="token variable">#{$theme-name}</span>&quot;] <span class="token parent important">&amp;</span> </span><span class="token punctuation">{</span>
+            <span class="token keyword">@content</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//声明一个根据Key获取颜色的function</span>
+<span class="token keyword">@function</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">@return</span> <span class="token function">map-get</span><span class="token punctuation">(</span><span class="token variable">$theme-map</span><span class="token punctuation">,</span> <span class="token variable">$key</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">//获取背景颜色</span>
+<span class="token keyword">@mixin</span> set_<span class="token function">theme</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$background_color</span></span><span class="token punctuation">:</span>background_color1<span class="token punctuation">,</span><span class="token property"><span class="token variable">$font_color</span></span><span class="token punctuation">:</span>font_color1<span class="token punctuation">,</span><span class="token property"><span class="token variable">$border_color</span></span><span class="token punctuation">:</span>border_color1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+        <span class="token keyword">@if</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$background_color</span><span class="token punctuation">)</span><span class="token selector">==null </span><span class="token punctuation">{</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span>background_color1<span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">@else</span><span class="token punctuation">{</span>
+            <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$background_color</span><span class="token punctuation">)</span><span class="token important">!important</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+        <span class="token keyword">@if</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$font_color</span><span class="token punctuation">)</span><span class="token selector">==null </span><span class="token punctuation">{</span>
+            <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span>font_color1<span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">@else</span><span class="token punctuation">{</span>
+            <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$font_color</span><span class="token punctuation">)</span><span class="token important">!important</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">@include</span> <span class="token selector">themeify </span><span class="token punctuation">{</span>
+        <span class="token keyword">@if</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$border_color</span><span class="token punctuation">)</span><span class="token selector">==null </span><span class="token punctuation">{</span>
+            <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span>border_color1<span class="token punctuation">)</span> <span class="token important">!important</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">@else</span><span class="token punctuation">{</span>
+            <span class="token property">border-color</span><span class="token punctuation">:</span> <span class="token function">themed</span><span class="token punctuation">(</span><span class="token variable">$border_color</span><span class="token punctuation">)</span><span class="token important">!important</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br></div></div><h4 id="第三步-include-set-theme-的使用"><a href="#第三步-include-set-theme-的使用" class="header-anchor">#</a> 第三步：@include set_theme()的使用</h4> <ul><li>1
+<ul><li>不传值会按照默认的相应的主题色来设置 各个css属性值，</li></ul></li> <li>2
+<ul><li>传值会去遍历相应主题 _theme.scss文件的键，设置css属性值</li></ul></li></ul> <div class="language-scss line-numbers-mode"><pre class="language-scss"><code>    <span class="token comment">// @import &quot;../../../../theme/handle&quot;;</span>
+    <span class="token keyword">@import</span> <span class="token string">'~@/theme/handle'</span><span class="token punctuation">;</span>
+    <span class="token selector">.trip-cart-btm-bar.nav-btmbar-container </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+      <span class="token property">line-height</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+      <span class="token property">border-top</span><span class="token punctuation">:</span> 1px solid #e4e4e4<span class="token punctuation">;</span>
+      <span class="token keyword">@include</span> set_<span class="token function">theme</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/yny-fe/wiki/edit/main/docs/fe-design/toggle-theme.md" target="_blank" rel="noopener noreferrer">Help us improve this page!</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">12/22/2021, 4:08:44 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/fe-design/performance.html" class="prev">
+        前端渲染速度优化方案
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.717f167b.js" defer></script><script src="/assets/js/2.70df9f4e.js" defer></script><script src="/assets/js/20.0e899b0c.js" defer></script>
+  </body>
+</html>
