@@ -2,12 +2,13 @@
 * @Author: Just be free
 * @Date:   2020-07-10 14:04:39
 * @Last Modified by:   Just be free
-* @Last Modified time: 2021-11-04 11:12:34
+* @Last Modified time: 2021-12-27 10:19:04
 * @E-mail: justbefree@126.com
 */
 module.exports = {
   nav: [
     { text: "Home", link: "/" },
+    { text: "Design", link: "/design/" },
     { text: "行程配置解读", link: "/trip/" },
     {
       text: "前端设计方案",
@@ -15,6 +16,9 @@ module.exports = {
     },
   ],
   sidebar: {
+    "/design/": [
+      ["colors.md", "Colors"]
+    ],
     "/trip/": [
       {
         title: "行程",
