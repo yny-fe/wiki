@@ -1,8 +1,19 @@
 <template>
-  <div class="color-card">
-    <a href="javascript:;" :title="'点击复制' + color"><span :style="{ backgroundColor: color }"></span></a>
-    <small>{{ desc }}</small>
-    <small>{{ name }}</small>
+  <div>
+    <template  v-if="!allColor">
+      <div class="color-card" >
+        <a href="javascript:;" :title="'点击复制' + color"><span :style="{ backgroundColor: color }"></span></a>
+        <small>{{ desc }}</small>
+        <small>{{ name }}</small>
+      </div>
+    </template>
+    <template  v-else>
+      <div class="color-card" v-for="(item ,index) in  handleAllColorArr"  :key="index">
+        <a href="javascript:;" :title="'点击复制' + item"><span :style="{ backgroundColor: item }"></span></a>
+        <small>{{ "allColor-"+item}}</small>
+        <small>{{ name }}</small>
+      </div>
+    </template>
   </div>
 </template>
 <script type="text/javascript">
@@ -15,7 +26,33 @@
     props: {
       color: String,
       desc: String,
-      name: String
+      name: String,
+      allColor:{
+        type:String,
+        default:()=>{
+          ''
+        }
+      }
+    },
+    data(){
+      return {
+        handleAllColorArr:[]
+
+      }
+    },
+    methods:{
+      handleAllColor(){
+        
+        this.handleAllColorArr=this.allColor.split(' ')
+      }
+    },
+    created(){
+      if(this.allColor){
+        this.handleAllColor()
+        console.log('arr',this.handleAllColorArr)
+
+      }
+
     }
   };
 </script>
