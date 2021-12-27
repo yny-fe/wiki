@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <template  v-if="!allColor">
+  <div style="display:inline-block">
+    <template  v-if="!allColor"  >
       <div class="color-card" >
         <a href="javascript:;" :title="'点击复制' + color"><span :style="{ backgroundColor: color }"></span></a>
         <small>{{ desc }}</small>
@@ -9,9 +9,11 @@
     </template>
     <template  v-else>
       <div class="color-card" v-for="(item ,index) in  handleAllColorArr"  :key="index">
-        <a href="javascript:;" :title="'点击复制' + item"><span :style="{ backgroundColor: item }"></span></a>
-        <small>{{ "allColor-"+item}}</small>
-        <small>{{ name }}</small>
+        <div   v-if="item">
+          <a href="javascript:;" :title="'点击复制' + item"><span :style="{ backgroundColor: item }"></span></a>
+          <small>{{ "allColor-"+item}}</small>
+          <small>{{ name }}</small>
+        </div>
       </div>
     </template>
   </div>
@@ -42,8 +44,9 @@
     },
     methods:{
       handleAllColor(){
+      
         
-        this.handleAllColorArr=this.allColor.split(' ')
+        this.handleAllColorArr=  [...new Set(this.allColor.split(' '))]
       }
     },
     created(){
