@@ -38,5 +38,175 @@ this.$router.beforeEach((to, from, next) => {
       });
 ```
 ## 源码
+- lazyComponent.vue文件代码
+```vue
+  <template>
+  <div class="lazy-component" key="component">
+    <template v-if="loading">
+      <slot></slot>
+    </template>
+  </div>
+</template>
+
+<script lang="ts">
+import "./less/style.scss";
+import { Component, BaseComponent, Watch, Prop } from "@/base";
+import LazyControl from "@/lib/lazyControl";
+import { AnyObject } from "@/core/types";
+const lazyControl = new LazyControl();
+@Component({
+  name: "lazyComponent"
+})
+export default class LazyComponent extends BaseComponent {
+  appName = "common";
+  // 懒执行 组件懒初始化
+  @Prop({ type: Boolean, default: false })
+  lazyInit!: boolean;
+  // 懒加载
+  @Prop({ type: Boolean, default: false })
+  lazyLoad!: boolean;
+
+  loading = false;
+
+  @Watch("lazyInit")
+  onLazyInit() {
+    this.init();
+  }
+
+  // 处理组件和骨架组件的切换
+  init() {
+    if (this.lazyInit && !this.loading) {
+      this.loading = true;
+    } else if (this.lazyLoad && !this.loading) {
+      const timer = setTimeout(() => {
+        this.loading = true;
+        this.taskObserve();
+      }, 0);
+      lazyControl.option.timer = timer;
+    }
+  }
+  taskObserve() {
+    if (window.MutationObserver) {
+      const mutationObserver = new MutationObserver(this.intersectionHandler);
+      lazyControl.option.observer = mutationObserver;
+      mutationObserver.observe(this.$el, { childList: true });
+    } else {
+      // 不支持 MutationObserver 加载该组件的时候 立即通知下一个任务去排队
+      lazyControl.option.observer = null;
+      lazyControl.startTask();
+    }
+  }
+  intersectionHandler(...args: AnyObject[]) {
+    lazyControl.startTask();
+    args[1].disconnect();
+  }
+  created() {
+    if (this.lazyLoad && !this.loading) {
+      // lazyControl.tasks.push({ fn: this.init, path: this.$route.path });
+      lazyControl.addTask(this.init, this.$route.path);
+    } else if (this.lazyInit && !this.loading) {
+      this.init();
+    }
+  }
+}
+</script>
+
+```
+- lazyControl.ts 文件
+```vue
+import { AnyObject } from "@/types";
+import { Route } from "vue-router/types";
+interface Task {
+  path: string;
+  fn: () => void;
+}
+interface LazyControl {
+  tasks: Task[];
+  option: {
+    curTaskPath: string; // 当前任务的path
+    observer: null | AnyObject; // 当前任务的 observer
+    timer: number | null; // 当前任务的 timer
+    status: string;
+  };
+}
+class LazyControl {
+  startTask() {
+    if (this.tasks.length > 0) {
+      this.tasks[0].fn();
+      this.option.curTaskPath = this.tasks[0].path;
+      this.tasks.shift();
+      this.option.status = "pending";
+    } else {
+      // 当没有任务，进来时 则将 status 置为 "end"
+      this.option.status = "end";
+    }
+  }
+  addTask(fn: () => void, path: string) {
+    this.tasks.push({ fn, path });
+    if (this.tasks.length === 1 && this.option.status === "end") {
+      // 第一次添加任务（任务数量为0且状态为 end ）
+      this.startTask();
+    }
+  }
+  clearTask(route: Route, toName: string) {
+    const { tasks } = this;
+    const len = tasks.length;
+    for (let i = len - 1; i >= 0; i--) {
+      if (this.isNeedClear(tasks[i].path, route, toName)) {
+        // 离开当前页 之前，清除当前页的任务
+        tasks.splice(i, 1);
+      }
+    }
+    const { curTaskPath, observer, timer } = this.option;
+    if (this.isNeedClear(curTaskPath, route, toName)) {
+      // 当前排队的任务 属于 要离开页面的任务，需要终止定时器
+      // this.option.curTaskPath = null;
+      // if (window.webkitCancelRequestAnimationFrame) {
+      //   timer && window.webkitCancelRequestAnimationFrame(timer);
+      // } else {
+      // }
+      timer && clearTimeout(timer);
+      this.option.timer = null;
+      observer && observer.disconnect();
+      this.option.observer = null;
+    }
+    if (this.tasks.length === 0) {
+      // 一个任务都没有的时候，需要将状态置为 end。如果最后一次执行完，没有进来
+      // status 一直为 pending, 则再次加任务 无法自动执行
+      this.option.status = "end";
+    }
+  }
+  isNeedClear(path: string, route: Route, toName: string) {
+    const { curTaskPath } = this.option;
+    // 当重复点击，离开的路由和 进入的路由 为同一个时 不清除
+    if (
+      this.isPageInPath(curTaskPath, route) &&
+      !this.isPageInToName(toName, route)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  isPageInPath(path: string, route: Route) {
+    const { matched } = route;
+    return matched.some(item => item.path === path);
+  }
+  isPageInToName(name: string, route: Route) {
+    const { matched } = route;
+    return matched.some(item => item.name === name);
+  }
+}
+
+LazyControl.prototype.tasks = []; // 保存所有任务{path:"", fn: ""}
+LazyControl.prototype.option = {
+  curTaskPath: "", // 当前任务的path
+  observer: null, // 当前任务的 observer
+  timer: 0, // 当前任务的 timer
+  status: "end"
+}; // "pending" "end"
+export default LazyControl;
+
+```
 [lazyComponent.vue](http://note.youdao.com/noteshare?id=89adbd8e922c742a672a9980bffdc940&sub=64C7AB7383684E1BBC41489ABA1F1A7D)
 [lazyControl.js](http://note.youdao.com/noteshare?id=840e915f6c8f0d2bf5eaa5aee6922faa&sub=18524E9AC8E44D5C8FF420915137F989)
