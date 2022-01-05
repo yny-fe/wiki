@@ -114,7 +114,7 @@ export default class LazyComponent extends BaseComponent {
 
 ```
 - lazyControl.ts 文件
-```vue
+```typescript
 import { AnyObject } from "@/types";
 import { Route } from "vue-router/types";
 interface Task {
