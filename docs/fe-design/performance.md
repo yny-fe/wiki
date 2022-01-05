@@ -3,8 +3,50 @@
 ## 背景
 - 行程首页首屏渲染速度慢，用户看到页面第一个元素等待时间过长
 - 行程首页页签切换速度慢，用户点击完页签按钮之后，页面长时间处于假死状态，移动端和ie浏览器尤为突出。
+- 为了解决上边的问题，我们分两部走，组件懒执行和组件懒加载,用于用到了事件循环，所以我们需要先了解什么事 js事件循环
 
-#为了解决上边的问题，我们分两部走，组件懒执行和组件懒加载
+## js事件循环
+#### Event Loop(事件循环)中，每一次循环称为 tick, 每一次tick的任务如下：
+
+- 执行栈选择最先进入队列的宏任务(通常是script整体代码)，如果有则执行
+- 检查是否存在 Microtask，如果存在则不停的执行，直至清空 microtask 队列
+- 更新render(每一次事件循环，浏览器都可能会去更新渲染)
+- 重复以上步骤
+宏任务 > 所有微任务 > 宏任务，如下图所示：
+![image](../.vuepress/images/eventLoop.jpg)
+#### 宏任务与微任务:
+ 异步任务分为 宏任务（macrotask） 与 微任务 (microtask)，不同的API注册的任务会依次进入自身对应的队列中，然后等待 Event Loop 将它们依次压入执行栈中执行。
+
+- 宏任务(macrotask)：
+
+script(整体代码)、setTimeout、setInterval、UI 渲染、 I/O、postMessage、 MessageChannel、setImmediate(Node.js 环境)
+
+- 微任务(microtask)：
+
+Promise、 MutaionObserver、process.nextTick(Node.js环境）
+#### demo
+```javascript
+  // 执行顺序问题，考察频率挺高的，先自己想答案**
+    setTimeout(function () {
+        console.log(1);
+    });
+    new Promise(function(resolve,reject){
+        console.log(2)
+        resolve(3)
+    }).then(function(val){
+        console.log(val);
+    })
+    console.log(4);
+```
+根据本文的解析，我们可以得到:
+
+- 先执行script同步代码
+- 先执行new Promise中的console.log(2),then后面的不执行属于微任务
+- 然后执行console.log(4)
+
+- 执行完script宏任务后，执行微任务，console.log(3)，没有其他微任务了。
+- 执行另一个宏任务，定时器，console.log(1)。
+根据本文的内容，可以很轻松，且有理有据的猜出写出正确答案：2,4,3,1.
 ## 组件懒执行
 - 将一部分不需要在首屏立刻展示的页面子组件先不初始化，等用户主动通过点击滑动等操作来触发初始化，这样就可以缩短页面首屏的渲染时间。比如行程首页的 人员选择组件，时间选择组件，城市选择组件等都可以用组件懒执行方案来优化
 
