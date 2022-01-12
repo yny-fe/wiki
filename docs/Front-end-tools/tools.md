@@ -38,7 +38,8 @@
   ![Alt text](./images/settingInterfaceDetailInfo.png)
 
   <Badge text="配置代码的说明：" /> 
-  
+
+  - _req 如果是get请求，可以在_req.url中获取到，如果是post请求，可以在_req.body中获取到。
  - list|10 代表生成10个对象 
  - @email  代表每个访问随机生成一个email地址 
  - @image('200x200') 代表随机生成一个宽高200的图片
