@@ -46,8 +46,8 @@
  - 更多内容介绍参考官方文档 http://mockjs.com/examples.html
        
 ### 第四步 利用postman使用接口
-  #### 1.cope完整地址
-  ![Alt text](./images/copeAddress.png)
+  #### 1.copy完整地址
+  ![Alt text](./images/copyAddress.png)
 
   #### 2.done
   ![Alt text](./images/result.png)
