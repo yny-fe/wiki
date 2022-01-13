@@ -22,7 +22,8 @@ module.exports = {
         title: "Tools",
         collapsable: true,
         children: [
-          ["tools.md", "fastmock工具的使用说明"]
+          ["tools.md", "fastmock工具的使用说明"],
+          ["mockjs.md", "mockjs工具的使用说明"],
         ]
       }
     ],
