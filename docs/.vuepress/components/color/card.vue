@@ -3,11 +3,14 @@
     <template  v-if="!allColor"  >
       <div class="color-card" >
         <a   href="javascript:;" :title="'点击复制' + color">
-          <input type="text"  id="input" :value="color">
-          <!-- data-clipboard-target="#input" -->
-          <span  :data-clipboard-text="name"  @click="clickColorCard(color)"  class="color-card-container"   :style="{ backgroundColor: color }"></span></a>
-        <small>{{ desc }}</small>
-        <small>{{ name }}</small>
+          <span  :data-clipboard-text="color"  @click="clickColorCard(`color-card-container`)"  class="color-card-container"   :style="{ backgroundColor: color }"></span>
+        </a>
+
+        <a  @click="clickColorCard(`variable`)"   href="javascript:;" title="点击复制变量">
+          <small>{{ desc }}</small>
+          <small class="variable" :data-clipboard-text="name">{{ name }}</small>
+        </a>
+
       </div>
     </template>
     <template  v-else>
@@ -48,28 +51,10 @@ import ClipboardJS from "clipboard";
     },
     methods:{
       handleAllColor(){
-      
-        
         this.handleAllColorArr=  [...new Set(this.allColor.split(' '))]
       },
-      clickColorCard(color){
-
-
-        var clipboard = new ClipboardJS('.color-card-container');
-
-        clipboard.on('success', function(e) {
-            console.info('Action:', e.action);
-            console.info('Text:', e.text);
-            console.info('Trigger:', e.trigger);
-
-            e.clearSelection();
-        });
-
-        clipboard.on('error', function(e) {
-            console.error('Action:', e.action);
-            console.error('Trigger:', e.trigger);
-        });
-
+      clickColorCard(className){
+        var clipboard = new ClipboardJS(`.${className}`);
       }
     },
     created(){
