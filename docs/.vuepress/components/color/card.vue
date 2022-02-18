@@ -2,7 +2,10 @@
   <div style="display:inline-block">
     <template  v-if="!allColor"  >
       <div class="color-card" >
-        <a href="javascript:;" :title="'点击复制' + color"><span :style="{ backgroundColor: color }"></span></a>
+        <a   href="javascript:;" :title="'点击复制' + color">
+          <input type="text"  id="input" :value="color">
+          <!-- data-clipboard-target="#input" -->
+          <span  :data-clipboard-text="name"  @click="clickColorCard(color)"  class="color-card-container"   :style="{ backgroundColor: color }"></span></a>
         <small>{{ desc }}</small>
         <small>{{ name }}</small>
       </div>
@@ -19,6 +22,7 @@
   </div>
 </template>
 <script type="text/javascript">
+import ClipboardJS from "clipboard";
   // import ClipboardJS from "clickboard";
   // console.log(ClipboardJS);
   // const ClipboardJS = require("clickboard");
@@ -47,6 +51,25 @@
       
         
         this.handleAllColorArr=  [...new Set(this.allColor.split(' '))]
+      },
+      clickColorCard(color){
+
+
+        var clipboard = new ClipboardJS('.color-card-container');
+
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            console.error('Action:', e.action);
+            console.error('Trigger:', e.trigger);
+        });
+
       }
     },
     created(){
