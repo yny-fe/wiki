@@ -34,6 +34,7 @@
 <color-card name="@yn-text-color-secondary" desc="次⽂本⾊" color="#4E5D78"></color-card>
 <color-card name="@yn-label-color" desc="标签⽂本、按钮" color="#8894A8"></color-card>
 <color-card name="@yn-disabled-color" desc="辅助、说明⽂字、失效⾊" color="#BCC1CC"></color-card>
+<color-card name="@yn-disabled-bg-color" desc="失效背景⾊" color="#F5F5F7"></color-card>
 <color-card name="@yn-auxiliary-color" desc="disable、提醒⽂字" color="#D0D3DB"></color-card>
 <color-card name="@yn-border-color-base" desc="边框" color="#E1E5EB"></color-card>
 <color-card name="@yn-background-color" desc="背景⾊" color="#F5F7FA"></color-card>
