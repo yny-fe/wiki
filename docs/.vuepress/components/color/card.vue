@@ -29,10 +29,6 @@
 </template>
 <script type="text/javascript">
 import ClipboardJS from "clipboard";
-  // import ClipboardJS from "clickboard";
-  // console.log(ClipboardJS);
-  // const ClipboardJS = require("clickboard");
-  // console.log(ClipboardJS);
   export default {
     name: "ColorCard",
     props: {
@@ -62,7 +58,7 @@ import ClipboardJS from "clipboard";
         this.handleAllColorArr=  [...new Set(this.allColor.split(' '))]
       },
       clickColorCard(className){
-        var clipboard = new ClipboardJS(`.${className}`);
+        new ClipboardJS(`.${className}`);
       }
     },
     created(){
