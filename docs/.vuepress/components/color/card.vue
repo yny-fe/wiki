@@ -2,8 +2,11 @@
   <div style="display:inline-block">
     <template  v-if="!allColor"  >
       <div class="color-card" >
-        <a   href="javascript:;" :title="'点击复制' + color">
+        <a  v-if="!shadow" href="javascript:;" :title="'点击复制' + color">
           <span  :data-clipboard-text="color"  @click="clickColorCard(`color-card-container`)"  class="color-card-container"   :style="{ backgroundColor: color }"></span>
+        </a>
+        <a  v-else href="javascript:;" :title="'点击复制' + shadow">
+          <span  :data-clipboard-text="shadow"  @click="clickColorCard(`color-card-container`)"  class="color-card-container"   :style="{ boxShadow: shadow }"></span>
         </a>
 
         <a  @click="clickColorCard(`variable`)"   href="javascript:;" title="点击复制变量">
@@ -41,6 +44,11 @@ import ClipboardJS from "clipboard";
         default:()=>{
           ''
         }
+      },
+      shadow:{
+        type:String,
+        default:'',
+        require:false
       }
     },
     data(){

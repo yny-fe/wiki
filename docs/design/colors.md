@@ -70,6 +70,14 @@
 <color-card name="" desc="图表辅助-8" color="#EFD311"></color-card>
 <color-card name="" desc="图表辅助-9" color="#2BB291"></color-card>
 
+## 容器投影
+⽤于卡片阴影
+
+<color-card desc="信息容器默认态投影" name="@yn-shadow-1" shadow='0px 1px 5px 1px rgba(78,93,120,0.1)' color="#fff"></color-card>
+<color-card desc="信息容器激活态投影" name="@yn-shadow-2" shadow='0px 6px 18px 1px rgba(78,93,120,0.14)' color="#fff"></color-card>
+<color-card desc="模态弹窗的投影" name="@yn-shadow-3" shadow='0px 10px 32px 1px rgba(78,93,120,0.18)' color="#fff"></color-card>
+<color-card desc="浮层容器的投影" name="@yn-shadow-4" shadow='0px 13px 42px 1px rgba(78,93,120,0.24)' color="#fff"></color-card>
+
 
 ## 商旅1.0 UI颜色值
 商旅1.0的全部颜色值
