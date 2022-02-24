@@ -60,15 +60,15 @@
 ## 图表列辅助⾊
 ⽤于图标、彩⾊标签、图表等配⾊使⽤
 
-<color-card name="" desc="图表辅助-1" color="#0052CC"></color-card>
-<color-card name="" desc="图表辅助-2" color="#4CCDFE"></color-card>
-<color-card name="" desc="图表辅助-3" color="#81E9E6"></color-card>
-<color-card name="" desc="图表辅助-4" color="#747CFB"></color-card>
-<color-card name="" desc="图表辅助-5" color="#FF99E6"></color-card>
-<color-card name="" desc="图表辅助-6" color="#CDA5F3"></color-card>
-<color-card name="" desc="图表辅助-7" color="#8894A8"></color-card>
-<color-card name="" desc="图表辅助-8" color="#EFD311"></color-card>
-<color-card name="" desc="图表辅助-9" color="#2BB291"></color-card>
+<color-card name="@yn-chart-1" desc="图表辅助-1" color="#0052CC"></color-card>
+<color-card name="@yn-chart-2" desc="图表辅助-2" color="#4CCDFE"></color-card>
+<color-card name="@yn-chart-3" desc="图表辅助-3" color="#81E9E6"></color-card>
+<color-card name="@yn-chart-4" desc="图表辅助-4" color="#747CFB"></color-card>
+<color-card name="@yn-chart-5" desc="图表辅助-5" color="#FF99E6"></color-card>
+<color-card name="@yn-chart-6" desc="图表辅助-6" color="#CDA5F3"></color-card>
+<color-card name="@yn-chart-7" desc="图表辅助-7" color="#8894A8"></color-card>
+<color-card name="@yn-chart-8" desc="图表辅助-8" color="#EFD311"></color-card>
+<color-card name="@yn-chart-9" desc="图表辅助-9" color="#2BB291"></color-card>
 
 ## 容器投影
 ⽤于卡片阴影
