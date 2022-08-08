@@ -8,6 +8,7 @@
 module.exports = {
   nav: [
     { text: "Home", link: "/" },
+    { text: "前端开发工具", link: "/Front-end-tools/" },
     { text: "Design", link: "/design/" },
     { text: "行程配置解读", link: "/trip/" },
     {
@@ -16,6 +17,16 @@ module.exports = {
     },
   ],
   sidebar: {
+    "/Front-end-tools/": [
+      {
+        title: "Tools",
+        collapsable: true,
+        children: [
+          ["tools.md", "fastmock工具的使用说明"],
+          ["mockjs.md", "mockjs工具的使用说明"],
+        ]
+      }
+    ],
     "/design/": [
       ["colors.md", "Colors"]
     ],
