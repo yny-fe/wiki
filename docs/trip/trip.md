@@ -530,9 +530,9 @@ deprecated
 
 ## PassengerShowType
 
-  - 背景：
-  - 作用：
-  - 默认值：
+  - 背景：是否允许内部人可搜索
+  - 作用：如果值为2则表示不允许搜索出行人，默认是登录人
+  - 默认值：默认是可以进行搜索
 
 ## IsTravelerInfoVaild
 
